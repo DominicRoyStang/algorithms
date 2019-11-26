@@ -13,7 +13,7 @@ const depthFirstSearch = (vertices, edges, searchedValue) => {
         if (vertices[vertex] === searchedValue) {
             return true;
         }
-        return false;
+        return null;
     };
 
     const explore = (vertex) => {
@@ -21,7 +21,7 @@ const depthFirstSearch = (vertices, edges, searchedValue) => {
         const found = previsit(vertex); //previsit (dfs)
 
         // stop condition
-        if (found) {
+        if (found !== null) {
             return vertex;
         }
 
@@ -33,16 +33,18 @@ const depthFirstSearch = (vertices, edges, searchedValue) => {
         }
 
         //postvisit (bfs)
+        return null;
     };
 
     for (let v = 0; v < vertices.length; v++) { // need this outer loop in case the graph is not connected
         if (!visited[v]) {
             const result = explore(v);
-            if (result) {
+            if (result !== null) {
                 return result;
             }
         }
     }
+    return null;
 };
 
 const main = () => {
