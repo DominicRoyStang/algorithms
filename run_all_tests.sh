@@ -9,3 +9,5 @@ node $SRC_FOLDER/findAllSubsets/findAllSubsets.test.js
 
 node $SRC_FOLDER/maxSubsetSum/maxAdjacentSubsetSum.test.js
 node $SRC_FOLDER/maxSubsetSum/maxNonAdjacentSubsetSum.test.js
+
+node $SRC_FOLDER/sort/mergeSort.test.js
