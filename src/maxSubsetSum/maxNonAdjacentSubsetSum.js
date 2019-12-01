@@ -1,5 +1,5 @@
 // Given an array of numbers, return the sum of the maximum subarray where each element is not adjacent in the original array.
-// Runtime: O(n)
+// Runtime: O(n). Memory: O(1).
 const maxNonAdjacentSubsetSum = (arr) => {
     if (arr.length === 0) {
         return null;
