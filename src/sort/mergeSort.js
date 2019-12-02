@@ -1,7 +1,6 @@
 // Given an array of numbers, return the same array sorted in ascending order.
-// Runtime: O(n*log(n)).
+// Runtime: O(n*log(n)). Memory: O(n).
 const mergeSort = (arr) => {
-    console.log('START');
     mergeSortRecursive(arr, 0, arr.length - 1);
     return arr;
 };
