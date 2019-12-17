@@ -11,3 +11,6 @@ node $SRC_FOLDER/maxSubsetSum/maxAdjacentSubsetSum.test.js
 node $SRC_FOLDER/maxSubsetSum/maxNonAdjacentSubsetSum.test.js
 
 node $SRC_FOLDER/sort/mergeSort.test.js
+node $SRC_FOLDER/sort/quickSort.test.js
+
+node $SRC_FOLDER/select/select.test.js
