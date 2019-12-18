@@ -22,6 +22,14 @@ function main() {
     process.stdout.write("TEST 4: ");
     const result4 = longestCommonSubsequence("ceccefcmmr", "cadcecfdmar");
     logResult(result4, 6);
+
+    process.stdout.write("TEST 5: ");
+    const result5 = longestCommonSubsequence("abcd", "bd");
+    logResult(result5, 2);
+
+    process.stdout.write("TEST 6: ");
+    const result6 = longestCommonSubsequence("abcd", "bed");
+    logResult(result6, 2);
 }
 
 main();
