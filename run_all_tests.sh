@@ -3,6 +3,7 @@
 SRC_FOLDER=$(dirname $0)/src
 
 node $SRC_FOLDER/utils/buildGraph.test.js
+node $SRC_FOLDER/utils/combinatronics.test.js
 
 node $SRC_FOLDER/depthFirstSearch/depthFirstSearchAdjacencyList.test.js
 node $SRC_FOLDER/depthFirstSearch/depthFirstSearchObjectGraph.test.js
