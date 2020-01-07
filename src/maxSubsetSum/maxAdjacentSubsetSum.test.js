@@ -22,6 +22,10 @@ function main() {
     process.stdout.write("TEST 4: ");
     const result4 = maxAdjacentSubsetSum([-5, 4, -4, 3, -1, 3]);
     logResult(result4, 5);
+
+    process.stdout.write("TEST 5: ");
+    const result5 = maxAdjacentSubsetSum([-5, -17, -2, -33, -1, -2]);
+    logResult(result5, -1);
 }
 
 main();
