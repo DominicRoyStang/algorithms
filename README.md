@@ -4,9 +4,12 @@ My implementations of various algorithms using no libraries, and whatever langua
 
 # Environment Setup
 
-To run the code natively, install NodeJS
+To run the code natively:
+1. install NodeJS
 
-To run the code in containers, install Docker
+To run the code in containers:
+1. install Docker
+2. install docker-compose
 
 # Run the code (native)
 
@@ -17,6 +20,5 @@ To run the code in containers, install Docker
 # Run the code (containers)
 
 ```bash
-docker build -t algorithms
-docker run -it algorithms
+docker-compose up --build
 ```

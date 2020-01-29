@@ -1,5 +1,9 @@
 FROM node:13.7.0-stretch
 
+# Create service directory
+RUN mkdir -p /algorithms
+WORKDIR /algorithms
+
 # Copy source code
 COPY . .
 
