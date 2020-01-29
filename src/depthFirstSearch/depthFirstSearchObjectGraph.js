@@ -11,9 +11,9 @@ const depthFirstSearch = (vertices, searchedValue) => {
         }
 
         // visit neighbors
-        for (const neighbor of vertex.neighbors) {
-            if (!neighbor.visited) {
-                return explore(neighbor);
+        for (const {destination} of vertex.neighbors) {
+            if (!destination.visited) {
+                return explore(destination);
             }
         }
 

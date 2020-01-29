@@ -43,7 +43,7 @@ function objectGraphEqualsAdjacencyList(objectGraph, adjacencyList) {
         }
 
         for (let j = 0; j < expectedEdges.length; j++) {
-            if (adjacencyList.vertices[expectedEdges[j]] !== vertex.neighbors[j].value) {
+            if (adjacencyList.vertices[expectedEdges[j]] !== vertex.neighbors[j].destination.value) {
                 return false;
             }
         }
@@ -75,7 +75,7 @@ function adjacencyListEqualsObjectGraph(adjacencyList, objectGraph) {
         }
 
         for (let j = 0; j < expectedVertex.neighbors.length; j++) {
-            if (expectedVertex.neighbors[j].value !== adjacencyList.vertices[edges[j]]) {
+            if (expectedVertex.neighbors[j].destination.value !== adjacencyList.vertices[edges[j]]) {
                 return false;
             }
         }

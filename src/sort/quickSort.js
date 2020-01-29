@@ -19,7 +19,6 @@ const quickSortRecursive = (arr, left, right) => {
 
     quickSortRecursive(arr, left, partitionIndex - 1);
     quickSortRecursive(arr, partitionIndex, right);
-
 };
 
 const partition = (arr, left, right, pivotValue) => {
