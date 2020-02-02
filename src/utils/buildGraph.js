@@ -37,7 +37,9 @@ const buildObjectGraphFromAdjacencyList = ({vertices, edges, weights = mapToNull
         const vertex = vertexList[i];
         const neighbors = edges[i];
         const edgeWeights = weights[i];
-        vertex.neighbors = neighbors.map((index) => new Edge(vertex, vertexList[index], edgeWeights[index]));
+        vertex.neighbors = neighbors.map(
+            (destinationIndex, edgeIndex) => new Edge(vertex, vertexList[destinationIndex], edgeWeights[edgeIndex])
+        );
     }
 
     return vertexList;

@@ -2,7 +2,7 @@ const {buildObjectGraphFromAdjacencyList} = require("./buildGraph");
 
 const adjacencyList1 = {
     // values for each of the start vertices in the edges list
-    vertices: [3, 1, 100, 4, 2],
+    vertices: ["A", "B", "C", "D", "E"],
 
     // node ids are their index in the top-level array, values in the arrays are the indices of "destination vertices"
     edges: [
@@ -11,12 +11,22 @@ const adjacencyList1 = {
         [3,4],
         [2],
         [0,1,2,3]
+    ],
+
+    // weight of each edge - accessible via weights[sourceIndex][destinationIndex]
+    weights: [
+        [1,2],
+        [3,4],
+        [5,6],
+        [7],
+        [8,9,10,11]
     ]
 };
 
 const disconnectedAdjacencyList = {
     vertices: [3, 1, 100, 4, 2],
-    edges: [[], [], [], [], []]
+    edges: [[], [], [], [], []],
+    weights: [[], [], [], [], []]
 };
 
 /*
@@ -37,45 +47,20 @@ function objectGraphEqualsAdjacencyList(objectGraph, adjacencyList) {
         const vertex = objectGraph[i];
         const expectedValue = adjacencyList.vertices[i];
         const expectedEdges = adjacencyList.edges[i];
+        const expectedWeights = adjacencyList.weights[i];
 
         if (vertex.value !== expectedValue) {
             return false;
         }
 
         for (let j = 0; j < expectedEdges.length; j++) {
-            if (adjacencyList.vertices[expectedEdges[j]] !== vertex.neighbors[j].destination.value) {
+            const actualEdge = vertex.neighbors[j];
+            const expectedDestination = adjacencyList.vertices[expectedEdges[j]];
+            const expectedWeight = expectedWeights[j];
+            if (expectedDestination !== actualEdge.destination.value) {
                 return false;
             }
-        }
-    }
-
-    return true;
-}
-
-/*
- * Returns true if the adjacencyList (actual) equals the objectGraph (expected), false otherwise.
- * Note1: This is a shallow check. It just uses the values of the vertex and its neighbours (could fail if there were duplicates).
- * we would need a proper graph traversal eg. DFS, but then the testing function would be more complex than the function it tests.
- * Note2: This implementation assumes order is preserved between vertices and object graph array
- * (which is true with the current implementation)
- */
-function adjacencyListEqualsObjectGraph(adjacencyList, objectGraph) {
-    if (objectGraph.length !== adjacencyList.edges.length) {
-        return false;
-    }
-
-    // compare adjacency list (actual) to object graph (expected)
-    for (let i = 0; i < objectGraph.length; i++) {
-        const value = adjacencyList.vertices[i];
-        const edges = adjacencyList.edges[i];
-        const expectedVertex = objectGraph[i];
-
-        if (value !== expectedVertex.value) {
-            return false;
-        }
-
-        for (let j = 0; j < expectedVertex.neighbors.length; j++) {
-            if (expectedVertex.neighbors[j].destination.value !== adjacencyList.vertices[edges[j]]) {
+            if (expectedWeight !== actualEdge.weight) {
                 return false;
             }
         }
