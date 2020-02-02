@@ -33,6 +33,20 @@ function main() {
 
     process.stdout.write("TEST 8: ");
     logResult(removeLastTest(), true);
+
+    // isEmpty
+    process.stdout.write("TEST 9: ");
+    logResult(isEmptyTrueTest(), true);
+
+    process.stdout.write("TEST 10: ");
+    logResult(isEmptyFalseTest(), false);
+
+    // Symbol.iterator
+    process.stdout.write("TEST 11: ");
+    logResult(symbolIteratorEmptyTest(), true);
+
+    process.stdout.write("TEST 12: ");
+    logResult(symbolIteratorTest(), true);
 }
 
 function constructorBaseTest() {
@@ -83,6 +97,45 @@ function removeLastTest() {
     const toRemove = list.last;
     list.remove(toRemove);
     return list.length === 2 && list.first.value === "A" && list.last.value === "B";
+}
+
+function isEmptyTrueTest() {
+    const list = new DoublyLinkedList();
+    return list.isEmpty();
+}
+
+function isEmptyFalseTest() {
+    const list = new DoublyLinkedList(["A"]);
+    return list.isEmpty();
+}
+
+function symbolIteratorEmptyTest() {
+    const list = new DoublyLinkedList();
+    for (const _ of list) {
+        return false;
+    }
+
+    return true;
+}
+
+function symbolIteratorTest() {
+    const values = ["A", "B", "C"];
+    const list = new DoublyLinkedList(values);
+
+    // Check the iterator returns the same values in the same order
+    const nodes = Array.from(list);
+    for (let i = 0; i < values.length; i++) {
+        if (values[i] !== nodes[i].value) {
+            return false;
+        }
+    }
+
+    // Check that the iterator is iterable
+    for (const _ of list) {
+        return true;
+    }
+
+    return false;
 }
 
 main();

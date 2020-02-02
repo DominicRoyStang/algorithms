@@ -59,6 +59,14 @@ class DoublyLinkedList {
     isEmpty() {
         return this.length === 0;
     }
+
+    *[Symbol.iterator]() {
+        let node = this.first;
+        while (node !== null) {
+            yield node;
+            node = node.next;
+        }
+    }
 }
 
 class Node {
