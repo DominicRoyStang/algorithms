@@ -3,6 +3,8 @@ version: '3.7'
 services:
   algorithms:
     image: algorithms
+    build:
+      context: .
     stdin_open: true
     tty: true
     volumes:
