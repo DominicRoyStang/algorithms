@@ -23,3 +23,5 @@ node $SRC_FOLDER/select/select.test.js
 node $SRC_FOLDER/longestCommonSubsequence/longestCommonSubsequence.test.js
 
 node $SRC_FOLDER/dijkstra/dijkstra.test.js
+
+node $SRC_FOLDER/binarySearch/binarySearch.test.js
